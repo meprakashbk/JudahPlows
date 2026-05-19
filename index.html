@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judah Plows — Worship Music</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #7a6230;
+    --cream: #F0E6CC;
+    --cream-dim: #b8a98a;
+    --dark: #0C0A08;
+    --dark-2: #141210;
+    --dark-3: #1c1915;
+    --dark-4: #242018;
+    --border: rgba(201,168,76,0.18);
+    --border-bright: rgba(201,168,76,0.45);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: linear-gradient(to bottom, rgba(12,10,8,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream-dim);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 8rem 2rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 100%, rgba(201,168,76,0.04) 0%, transparent 70%);
+  }
+
+  .hero-cross {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -55%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  h1.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    position: relative;
+    margin-bottom: 0.15em;
+  }
+
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream-dim);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.2rem;
+    position: relative;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    border: 1px solid var(--border-bright);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.4;
+    animation: bounce 2.5s infinite;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .scroll-indicator .line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold-dim), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  h2.section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-frame {
+    aspect-ratio: 3/4;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+
+  .cross-watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    opacity: 0.12;
+  }
+
+  .about-frame-accent {
+    position: absolute;
+    top: -12px; left: -12px;
+    right: 12px; bottom: 12px;
+    border: 1px solid var(--border);
+    pointer-events: none;
+  }
+
+  .about-quote {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 85%;
+  }
+
+  .about-quote p {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold);
+    line-height: 1.5;
+  }
+
+  .about-text p {
+    color: var(--cream-dim);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* MUSIC */
+  .music-section { background: var(--dark-2); }
+  .music-section-inner {
+    padding: 7rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .albums-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .album-card {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .album-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-4px);
+  }
+
+  .album-art {
+    aspect-ratio: 1;
+    background: var(--dark-4);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .album-art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 80%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  .album-cross {
+    opacity: 0.15;
+  }
+
+  .album-year {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.3rem;
+  }
+
+  .album-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .album-desc {
+    font-size: 0.88rem;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+
+  .play-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-bright);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    transition: background 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .album-card:hover .play-icon {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .play-icon svg { transition: stroke 0.3s; }
+  .album-card:hover .play-icon svg path { fill: var(--dark); }
+
+  /* SHOWS */
+  .shows-list {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .show-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .show-item:hover { padding-left: 1rem; transition: padding 0.3s; }
+
+  .show-date {
+    text-align: center;
+  }
+
+  .show-date .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .show-date .month {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+
+  .show-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+  }
+
+  .show-info p {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+  }
+
+  .show-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border-bright);
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* CONTACT / FOOTER */
+  .footer-section {
+    background: var(--dark-2);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .footer-brand .name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-brand .tagline {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--cream-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul li a {
+    color: var(--cream-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-col p {
+    font-size: 0.9rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+  }
+
+  .scripture {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--gold-dim);
+  }
+
+  /* VERSE STRIP */
+  .verse-strip {
+    background: var(--dark-3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3.5rem 4rem;
+    text-align: center;
+  }
+
+  .verse-strip blockquote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--cream);
+    max-width: 680px;
+    margin: 0 auto 0.8rem;
+    line-height: 1.7;
+  }
+
+  .verse-strip cite {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    font-style: normal;
+  }
+
+  /* BAND MEMBERS */
+  .members-section { background: var(--dark-2); }
+  .members-inner {
+    padding: 7rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .member-card {
+    text-align: center;
+  }
+  .member-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .member-card:hover .member-avatar { border-color: var(--border-bright); }
+  .member-avatar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  }
+  .member-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+    z-index: 1;
+  }
+  .member-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+  }
+  .member-role {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.6rem;
+  }
+  .member-bio {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    line-height: 1.65;
+  }
+
+  /* HAMBURGER */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--gold);
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* TABLET — 900px */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    section { padding: 5rem 2rem; }
+    .music-section-inner { padding: 5rem 2rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 3rem; padding: 4rem 2rem 2rem; }
+    .footer-bottom { padding: 1.5rem 2rem; }
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .albums-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .members-inner { padding: 5rem 2rem; }
+    .members-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .verse-strip { padding: 3rem 2rem; }
+  }
+
+  /* MOBILE — 640px */
+  @media (max-width: 640px) {
+    /* Nav: hamburger */
+    nav { padding: 1rem 1.25rem; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(12,10,8,0.98);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.2rem; letter-spacing: 0.2em; }
+
+    /* Sections */
+    section { padding: 4rem 1.25rem; }
+    .music-section-inner { padding: 4rem 1.25rem; }
+    .verse-strip { padding: 2.5rem 1.25rem; }
+
+    /* Hero */
+    .hero { padding: 6rem 1.25rem 3rem; }
+    .hero-cta { flex-direction: column; align-items: center; gap: 0.8rem; }
+    .btn-primary, .btn-outline { width: 100%; max-width: 240px; text-align: center; }
+
+    /* About: stack vertically, hide decorative frame */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-visual { display: none; }
+
+    /* Albums: single column */
+    .albums-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .members-inner { padding: 4rem 1.25rem; }
+    .members-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+
+    /* Shows */
+    .show-item { grid-template-columns: 60px 1fr; gap: 1rem; padding: 1.4rem 0; }
+    .show-tag { display: none; }
+    .show-date .day { font-size: 1.8rem; }
+
+    /* Footer */
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.25rem 1.5rem; }
+    .footer-bottom { flex-direction: column; gap: 0.4rem; padding: 1.2rem 1.25rem; text-align: center; }
+
+    /* Section headings */
+    h2.section-title { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Judah Plows</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-cross" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="265" y="60" width="70" height="480" fill="#C9A84C"/>
+    <rect x="80" y="190" width="440" height="70" fill="#C9A84C"/>
+  </svg>
+
+  <div class="hero-eyebrow">
+    <span>Worship &amp; Original Music</span>
+  </div>
+
+  <h1 class="hero-title">
+    Judah<br><em>Plows</em>
+  </h1>
+
+  <p class="hero-sub">Songs from the soil of surrender</p>
+
+  <div class="hero-cta">
+    <a href="#music" class="btn-primary">Listen</a>
+    <a href="#shows" class="btn-outline">Upcoming Shows</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- VERSE STRIP -->
+<div class="verse-strip">
+  <blockquote>
+    "Break up your unplowed ground; for it is time to seek the Lord, until he comes and showers his righteousness on you."
+  </blockquote>
+  <cite>Hosea 10:12</cite>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-frame-accent"></div>
+      <div class="about-frame">
+        <svg class="cross-watermark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" aria-hidden="true">
+          <rect x="52" y="10" width="16" height="100" fill="#C9A84C"/>
+          <rect x="10" y="42" width="100" height="16" fill="#C9A84C"/>
+        </svg>
+        <div class="about-quote">
+          <p>"Music is not our gift to God — it is God's grace flowing back to Him."</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Roots in <em>faith,</em><br>songs in the ground</h2>
+      <p>Judah Plows is a Christian Nepali worship band united by a single call: to surrender music to the Lord and let it become something that breaks open hard soil — in hearts, in communities, in the church.</p>
+      <p>The name comes from the tribe of Judah and the prophetic image in Hosea: <strong>breaking unplowed ground as an act of seeking God.</strong> That is what every song tries to do.</p>
+      <p>Drawing from Nepali musical roots and the global worship tradition, the band crafts original songs and covers that move between intimacy and declaration, between lament and joy.</p>
+      <a href="#contact" class="btn-outline" style="margin-top:1rem; display:inline-block;">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MUSIC -->
+<div class="music-section" id="music">
+  <div class="music-section-inner">
+    <div class="section-label">Discography</div>
+    <h2 class="section-title">Music &amp; <em>Releases</em></h2>
+
+    <div class="albums-grid">
+
+      <div class="album-card">
+        <div class="album-art">
+          <svg class="album-cross" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="28" y="6" width="8" height="52" fill="#C9A84C"/>
+            <rect x="6" y="24" width="52" height="8" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <div class="album-year">Latest Release</div>
+        <div class="album-title">Original Songs</div>
+        <p class="album-desc">Worship originals in Nepali and English — raw, honest, and rooted in scripture.</p>
+        <div class="play-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 2L11 7L3 12V2Z" fill="#C9A84C"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="album-card">
+        <div class="album-art">
+          <svg class="album-cross" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="28" y="6" width="8" height="52" fill="#C9A84C"/>
+            <rect x="6" y="24" width="52" height="8" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <div class="album-year">Worship Covers</div>
+        <div class="album-title">Live Sessions</div>
+        <p class="album-desc">Nepali-language renditions of beloved hymns and contemporary worship, recorded live.</p>
+        <div class="play-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 2L11 7L3 12V2Z" fill="#C9A84C"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="album-card">
+        <div class="album-art">
+          <svg class="album-cross" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="28" y="6" width="8" height="52" fill="#C9A84C"/>
+            <rect x="6" y="24" width="52" height="8" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <div class="album-year">Church &amp; Events</div>
+        <div class="album-title">Congregational</div>
+        <p class="album-desc">Songs written for the gathered church — accessible, participatory, and Spirit-led.</p>
+        <div class="play-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 2L11 7L3 12V2Z" fill="#C9A84C"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:2rem; font-size:0.85rem; color:var(--gold-dim); font-style:italic;">
+      ✦ Update the cards above with your actual releases, Spotify / YouTube links, and artwork.
+    </p>
+  </div>
+</div>
+
+<!-- SHOWS -->
+<section id="shows">
+  <div class="section-label">Events</div>
+  <h2 class="section-title">Upcoming <em>Shows</em></h2>
+
+  <div class="shows-list">
+
+    <div class="show-item">
+      <div class="show-date">
+        <div class="day">14</div>
+        <div class="month">Jun 2025</div>
+      </div>
+      <div class="show-info">
+        <h3>Sunday Worship Service</h3>
+        <p>Nepali Christian Fellowship, Abu Dhabi, UAE</p>
+      </div>
+      <div class="show-tag">Worship</div>
+    </div>
+
+    <div class="show-item">
+      <div class="show-date">
+        <div class="day">28</div>
+        <div class="month">Jun 2025</div>
+      </div>
+      <div class="show-info">
+        <h3>Community Praise Night</h3>
+        <p>Pokhara, Nepal</p>
+      </div>
+      <div class="show-tag">Concert</div>
+    </div>
+
+    <div class="show-item">
+      <div class="show-date">
+        <div class="day">12</div>
+        <div class="month">Jul 2025</div>
+      </div>
+      <div class="show-info">
+        <h3>Youth Conference Worship</h3>
+        <p>Kathmandu, Nepal</p>
+      </div>
+      <div class="show-tag">Conference</div>
+    </div>
+
+  </div>
+
+  <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--gold-dim); font-style:italic;">
+    ✦ Replace the placeholder dates and venues with your actual schedule.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- BAND MEMBERS -->
+<div class="members-section" id="members">
+  <div class="members-inner">
+    <div class="section-label">The Band</div>
+    <h2 class="section-title">Meet the <em>Members</em></h2>
+
+    <div class="members-grid">
+
+      <div class="member-card">
+        <div class="member-avatar">
+          <span class="member-initials">JP</span>
+        </div>
+        <div class="member-name">Member Name</div>
+        <div class="member-role">Vocals / Guitar</div>
+        <p class="member-bio">Brief description — their story, faith journey, or what they bring to the band.</p>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">
+          <span class="member-initials">JP</span>
+        </div>
+        <div class="member-name">Member Name</div>
+        <div class="member-role">Keys / Backing Vocals</div>
+        <p class="member-bio">Brief description — their story, faith journey, or what they bring to the band.</p>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">
+          <span class="member-initials">JP</span>
+        </div>
+        <div class="member-name">Member Name</div>
+        <div class="member-role">Bass Guitar</div>
+        <p class="member-bio">Brief description — their story, faith journey, or what they bring to the band.</p>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">
+          <span class="member-initials">JP</span>
+        </div>
+        <div class="member-name">Member Name</div>
+        <div class="member-role">Drums / Percussion</div>
+        <p class="member-bio">Brief description — their story, faith journey, or what they bring to the band.</p>
+      </div>
+
+    </div>
+
+    <p style="margin-top:2rem; font-size:0.85rem; color:var(--gold-dim); font-style:italic;">
+      ✦ Replace names, roles, initials, and bios with your actual band members. You can also swap the initials placeholder for a real photo using an &lt;img&gt; tag inside .member-avatar.
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT / FOOTER -->
+<div class="footer-section" id="contact">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="name">Judah Plows</div>
+      <div class="tagline">Songs from the soil of surrender</div>
+      <p>A Christian Nepali worship band. Available for church services, conferences, and community events across Nepal and the diaspora.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#shows">Shows</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <p>For bookings, collaborations, or prayer:</p>
+      <a href="mailto:hello@judahplows.com" class="contact-link">hello@judahplows.com</a>
+      <p style="margin-top:1rem;">Follow us on:</p>
+      <ul>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Judah Plows. All rights reserved.</p>
+    <p class="scripture">Hosea 10:12 — "Seek the Lord"</p>
+  </div>
+</div>
+
+</body>
+</html>
