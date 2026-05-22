@@ -694,6 +694,199 @@
     line-height: 1.65;
   }
 
+  /* CONTACT FORM */
+  .contact-section {
+    padding: 7rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .contact-info p {
+    font-size: 0.92rem;
+    color: var(--cream-dim);
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+  .contact-detail-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-detail-icon svg { display: block; }
+  .contact-detail span {
+    font-size: 0.88rem;
+    color: var(--cream-dim);
+  }
+  .contact-detail a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .contact-detail a:hover { color: var(--gold-light); }
+  .contact-socials {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.8rem;
+    flex-wrap: wrap;
+  }
+  .social-pill {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
+    color: var(--cream-dim);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-pill:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+  /* Form */
+  .form-wrapper {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+  }
+  .form-type-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+  }
+  .form-tab {
+    flex: 1;
+    padding: 0.65rem 0.5rem;
+    background: none;
+    border: none;
+    color: var(--cream-dim);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border-right: 1px solid var(--border);
+  }
+  .form-tab:last-child { border-right: none; }
+  .form-tab.active {
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .form-tab:not(.active):hover { color: var(--gold); }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .form-field label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: var(--dark-4);
+    border: 1px solid var(--border);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-color: var(--gold-dim); }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: var(--gold-dim); opacity: 0.5; }
+  .form-field select option { background: var(--dark-4); }
+  .form-field textarea { resize: vertical; min-height: 110px; }
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-submit {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  .form-submit button {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 0.85rem 2.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .form-submit button:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-submit button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .form-status {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    font-style: italic;
+  }
+  .form-status.success { color: #7dcea0; }
+  .form-status.error { color: #e57373; }
+
+  /* Booking extra fields */
+  .booking-fields, .collab-fields { display: none; }
+  .booking-fields.visible, .collab-fields.visible { display: contents; }
+
+  @media (max-width: 900px) {
+    .contact-section { padding: 5rem 2rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 640px) {
+    .contact-section { padding: 4rem 1.25rem; }
+    .form-wrapper { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-type-tabs { flex-wrap: wrap; }
+    .form-tab { flex: 1 0 33%; border-bottom: 1px solid var(--border); }
+  }
+
   /* HAMBURGER */
   .nav-toggle {
     display: none;
@@ -1052,31 +1245,147 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT / FOOTER -->
-<div class="footer-section" id="contact">
-  <div class="footer-inner">
+<!-- CONTACT FORM SECTION -->
+<div style="background: var(--dark-2); border-top: 1px solid var(--border);">
+<section class="contact-section" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Contact, Bookings &amp; <em>Collaborations</em></h2>
 
+  <div class="contact-grid">
+
+    <!-- Left: info -->
+    <div class="contact-info">
+      <h3>We'd love to hear from you</h3>
+      <p>Whether you'd like to book us for a church service, conference, or community event — or you're interested in collaborating musically — reach out and we'll get back to you.</p>
+
+      <p style="margin-top:1.8rem; font-size:0.85rem;">Follow our music and updates:</p>
+      <div class="contact-socials">
+        <a href="#" class="social-pill">YouTube</a>
+        <a href="#" class="social-pill">Spotify</a>
+        <a href="#" class="social-pill">Instagram</a>
+        <a href="#" class="social-pill">Facebook</a>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-wrapper">
+
+      <div class="form-type-tabs" role="tablist">
+        <button class="form-tab active" data-type="general" role="tab" aria-selected="true">General</button>
+        <button class="form-tab" data-type="booking" role="tab" aria-selected="false">Booking</button>
+        <button class="form-tab" data-type="collab" role="tab" aria-selected="false">Collaboration</button>
+      </div>
+
+      <!-- Web3Forms hidden inputs -->
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+      <input type="hidden" name="subject" id="formSubject" value="General Enquiry — Judah Plows">
+      <input type="hidden" name="from_name" value="Judah Plows Website">
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" name="first_name" placeholder="Your first name" required>
+        </div>
+        <div class="form-field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" placeholder="Your last name">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="phone">Phone / WhatsApp</label>
+        <input type="tel" id="phone" name="phone" placeholder="+977 or +971...">
+      </div>
+
+      <!-- Booking-specific fields -->
+      <div class="booking-fields" id="bookingFields">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="eventType">Event Type *</label>
+            <input type="text" id="eventType" name="event_type" placeholder="e.g. Church service, Conference...">
+          </div>
+          <div class="form-field">
+            <label for="eventDate">Preferred Date *</label>
+            <input type="date" id="eventDate" name="event_date">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="eventLocation">Event Location *</label>
+          <input type="text" id="eventLocation" name="event_location" placeholder="City, country or venue name">
+        </div>
+        <div class="form-field">
+          <label for="audience">Expected Audience Size</label>
+          <input type="text" id="audience" name="audience_size" placeholder="e.g. 50, around 200...">
+        </div>
+      </div>
+
+      <!-- Collaboration-specific fields -->
+      <div class="collab-fields" id="collabFields">
+        <div class="form-field">
+          <label for="collabType">Collaboration Type *</label>
+          <select id="collabType" name="collab_type">
+            <option value="">Select type</option>
+            <option>Original Song / Songwriting</option>
+            <option>Recording / Production</option>
+            <option>Joint Worship Event</option>
+            <option>Media / Video</option>
+            <option>Other Ministry Partnership</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="collabOrg">Your Organisation / Ministry</label>
+          <input type="text" id="collabOrg" name="organisation" placeholder="Church, band, ministry name...">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" placeholder="Tell us more about your enquiry, event, or idea..." required></textarea>
+      </div>
+
+      <!-- Honeypot spam prevention -->
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="form-submit">
+        <button type="button" id="submitBtn">Send Message</button>
+        <span class="form-status" id="formStatus"></span>
+      </div>
+
+    </div><!-- /.form-wrapper -->
+  </div><!-- /.contact-grid -->
+
+  <p style="margin-top:1rem; font-size:0.82rem; color:var(--gold-dim); font-style:italic;">
+    ✦ Replace <code style="font-style:normal; color:var(--cream-dim);">YOUR_WEB3FORMS_KEY</code> with your key from <a href="https://web3forms.com" target="_blank" style="color:var(--gold-dim);">web3forms.com</a> to activate form submissions.
+  </p>
+</section>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-section">
+  <div class="footer-inner">
     <div class="footer-brand">
       <div class="name">Judah Plows</div>
       <div class="tagline">Songs from the soil of surrender</div>
       <p>A Christian Nepali worship band. Available for church services, conferences, and community events across Nepal and the diaspora.</p>
     </div>
-
     <div class="footer-col">
       <h4>Navigate</h4>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#music">Music</a></li>
+        <li><a href="#members">Members</a></li>
         <li><a href="#shows">Shows</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Connect</h4>
-      <p>For bookings, collaborations, or prayer:</p>
-      <a href="mailto:hello@judahplows.com" class="contact-link">hello@judahplows.com</a>
-      <p style="margin-top:1rem;">Follow us on:</p>
+      <p>Find us on:</p>
       <ul>
         <li><a href="#">YouTube</a></li>
         <li><a href="#">Spotify</a></li>
@@ -1084,14 +1393,90 @@
         <li><a href="#">Facebook</a></li>
       </ul>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     <p>© 2025 Judah Plows. All rights reserved.</p>
     <p class="scripture">Hosea 10:12 — "Seek the Lord"</p>
   </div>
 </div>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.form-tab');
+  const bookingFields = document.getElementById('bookingFields');
+  const collabFields = document.getElementById('collabFields');
+  const formSubject = document.getElementById('formSubject');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', false); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', true);
+      const type = tab.dataset.type;
+      bookingFields.classList.toggle('visible', type === 'booking');
+      collabFields.classList.toggle('visible', type === 'collab');
+      const subjects = { general: 'General Enquiry — Judah Plows', booking: 'Booking Request — Judah Plows', collab: 'Collaboration Enquiry — Judah Plows' };
+      formSubject.value = subjects[type];
+    });
+  });
+
+  // Form submission via Web3Forms
+  document.getElementById('submitBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+    const required = document.querySelectorAll('.form-wrapper [required]');
+    let valid = true;
+
+    required.forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) {
+        f.style.borderColor = '#e57373';
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      status.textContent = 'Please fill in all required fields.';
+      status.className = 'form-status error';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'form-status';
+
+    // Collect all named inputs inside .form-wrapper
+    const data = {};
+    document.querySelectorAll('.form-wrapper input[name], .form-wrapper select[name], .form-wrapper textarea[name]').forEach(el => {
+      if (el.type === 'checkbox') return;
+      data[el.name] = el.value;
+    });
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (json.success) {
+        status.textContent = 'Message sent! We will be in touch soon.';
+        status.className = 'form-status success';
+        btn.textContent = 'Sent ✓';
+        // Reset fields
+        document.querySelectorAll('.form-wrapper input:not([type=hidden]):not([type=checkbox]), .form-wrapper select, .form-wrapper textarea').forEach(el => el.value = '');
+      } else {
+        throw new Error(json.message);
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try emailing us directly.';
+      status.className = 'form-status error';
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
 
 </body>
 </html>
