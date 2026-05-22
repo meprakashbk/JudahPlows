@@ -39,7 +39,7 @@
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,13 +58,13 @@
     text-transform: uppercase;
   }
 
-  .nav-links {
+  .nav-links-desktop {
     display: flex;
     gap: 2.5rem;
     list-style: none;
   }
 
-  .nav-links a {
+  .nav-links-desktop a {
     color: var(--cream-dim);
     text-decoration: none;
     font-size: 0.78rem;
@@ -74,7 +74,38 @@
     transition: color 0.3s;
   }
 
-  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links-desktop a:hover { color: var(--gold-light); }
+
+  /* Mobile overlay — sits outside nav, always covers full viewport */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(12,10,8,0.98);
+    z-index: 9998;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-overlay.open { display: flex; }
+
+  .mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .mobile-nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.4rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .mobile-nav-links a:hover { color: var(--gold); }
 
   /* HERO */
   .hero {
@@ -893,21 +924,23 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     background: none;
     border: none;
+    z-index: 9999;
+    position: relative;
   }
   .nav-toggle span {
     display: block;
     width: 24px;
-    height: 1.5px;
+    height: 2px;
     background: var(--gold);
     transition: transform 0.3s, opacity 0.3s;
     transform-origin: center;
   }
-  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .nav-toggle.open span:nth-child(2) { opacity: 0; }
-  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* TABLET — 900px */
   @media (max-width: 900px) {
@@ -925,22 +958,13 @@
 
   /* MOBILE — 640px */
   @media (max-width: 640px) {
-    /* Nav: hamburger */
-    nav { padding: 1rem 1.25rem; }
-    .nav-toggle { display: flex; }
-    .nav-links {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+    /* Nav */
+    nav {
+      padding: 1rem 1.25rem;
       background: rgba(12,10,8,0.98);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      z-index: 99;
     }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 1.2rem; letter-spacing: 0.2em; }
+    .nav-links-desktop { display: none; }
+    .nav-toggle { display: flex; }
 
     /* Sections */
     section { padding: 4rem 1.25rem; }
@@ -980,30 +1004,49 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Judah Plows</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks">
+  <!-- Desktop links inside nav -->
+  <ul class="nav-links-desktop">
     <li><a href="#about">About</a></li>
     <li><a href="#music">Music</a></li>
     <li><a href="#members">Members</a></li>
     <li><a href="#shows">Shows</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile overlay — outside nav so it's never clipped -->
+<div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+  <ul class="mobile-nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
 <script>
   const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
+  const overlay = document.getElementById('mobileOverlay');
+
   toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
+    const open = overlay.classList.toggle('open');
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open);
+    overlay.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
-  links.querySelectorAll('a').forEach(a => {
+
+  overlay.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
-      links.classList.remove('open');
+      overlay.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', false);
+      overlay.setAttribute('aria-hidden', true);
+      document.body.style.overflow = '';
     });
   });
 </script>
